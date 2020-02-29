@@ -1,3 +1,31 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'American Typewriter';
+    
+}
+
+body{
+    background-image: url("https://i.redd.it/8c3eal5pgvb21.png");
+}
+
+h1,
+#intro{
+    text-align: center;
+    width: 900px;;
+    background-color: lightgrey;   
+}
 #container{
-    visibility: hidden;
+    width:900px;
+    background-color: lightgrey;
+}
+
+h1,
+div{
+    margin:auto;
+    opacity: 1.5;
+}
+
+#intro{
+    padding: 5px;
 }
