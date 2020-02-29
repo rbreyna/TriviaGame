@@ -1,20 +1,28 @@
 $(document).ready(function () {
 
-    var count = 90;
+    var count;
     var countdown;
-    var ready = false;
-    var correct = 0;
+    var ready;
+    var correct;
+    
+    reset();
+
+    function reset(){
+        count = 75;
+        ready = false;
+        correct = 0;
+    }
 
     $("#start").click(function () {
+        
         $("#container").css("visibility", "visible");
         ready = true;
 
         if (ready) {
-
             countdown = setInterval(timer, 1000);
-        
+
             timer();
-    
+
         }
     });
 
@@ -25,14 +33,15 @@ $(document).ready(function () {
 
         $("#timer").html("Time Remaining: " + conversion);
     }
-    
+
     function timeConverter(time) {
-        if (time == 0) {
+        if (time < 1) {
+            reset();
             clearInterval(countdown);
             alert("Time is up!");
-            ready = false;
+            
         }
-
+        
         if (time > 59) {
             var minutes = "01";
             var seconds = time - 60;
@@ -45,16 +54,16 @@ $(document).ready(function () {
             return minutes + ":" + seconds;
         }
 
-        {
-            var minutes = "00";
-            var seconds = time;
 
-            if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
+        var minutes = "00";
+        var seconds = time;
 
-            return minutes + ":" + seconds;
+        if (seconds < 10) {
+            seconds = "0" + seconds;
         }
+
+        return minutes + ":" + seconds;
+
 
 
     }
@@ -70,6 +79,8 @@ $(document).ready(function () {
 
         if (question1 === "2005") {
             correct++;
+        }else{
+
         }
         if (question2 === "Krasinski") {
             correct++;
@@ -83,8 +94,14 @@ $(document).ready(function () {
         if (question5 === "Kevin") {
             correct++;
         }
+        clearInterval(countdown);
 
-        $("#score").text("You got " + correct + " questions correct!");
+        $("#score").css("visibility", "visible");
+        $("#wins").append(correct);
+        $("#losses").append(5-correct);
+        $("#message").text("You got " + correct + " questions correct!");
+
+        reset();
 
     });
 

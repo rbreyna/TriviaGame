@@ -9,7 +9,18 @@ body{
     background-image: url("https://i.redd.it/8c3eal5pgvb21.png");
 }
 
+.questions{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
+#submit,
+#start{
+    border-radius: 40px;
+    font-size: 14px;
+    padding: 5px;
+    margin-top:10px;
+}
 h1,
 #intro{
     text-align: center;
@@ -19,6 +30,12 @@ h1,
 #container{
     visibility: hidden;
     width:900px;
+    background-color: lightgrey;
+}
+
+#score{
+    width: 900px;
+    visibility: hidden;
     background-color: lightgrey;
 }
 
